@@ -167,3 +167,124 @@ h2 {
         transform: translateY(0);
     }
 }
+
+/* --- STRANICA: SALA --- */
+
+.info-projekcije {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info-projekcije h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.info-projekcije p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Stil za platno */
+.platno {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background-color: #ddd;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #555;
+    border-radius: 0 0 50% 50% / 0 0 20px 20px; /* Blago zakrivljeno dno da izgleda kao platno */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* CSS Grid za salu */
+.sala-grid {
+    display: grid;
+    /* 11 kolona: prva je za slovo (30px), ostalih 10 su sjedišta jednake širine (1fr) */
+    grid-template-columns: 30px repeat(10, 1fr);
+    gap: 10px; /* Razmak između sjedišta */
+    max-width: 600px; /* Ograničavamo maksimalnu širinu sale */
+    margin: 0 auto 30px auto;
+    align-items: center; /* Centrira slova po vertikali sa sjedištima */
+}
+
+/* Oznake redova (A, B, C...) */
+.oznaka-reda {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* Izgled svakog sjedišta */
+.sjediste {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* OVO JE KLJUČNO: Osigurava da je uvijek oblik savršenog kvadrata! */
+    border-radius: 5px; /* Blago zaobljene ivice sjedišta */
+    transition: transform 0.2s ease;
+}
+
+/* Efekt kad se pređe mišem preko sjedišta */
+.sjediste:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Boje za statuse sjedišta */
+.slobodno {
+    background-color: #4CAF50; /* Zelena */
+}
+
+.zauzeto {
+    background-color: #F44336; /* Crvena */
+}
+
+.rezervisano {
+    background-color: #9E9E9E; /* Siva */
+}
+
+/* --- LEGENDA --- */
+.legenda {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stavka-legende {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.stavka-legende .sjediste {
+    width: 20px;
+    height: 20px;
+    cursor: default; /* Poništavamo kursor na legendi */
+}
+.stavka-legende .sjediste:hover {
+    transform: none; /* Poništavamo uvećanje na legendi */
+}
+
+/* --- RESPONZIVNOST ZA SALU --- */
+@media (max-width: 600px) {
+    .sala-grid {
+        gap: 5px; /* Manji razmak na mobitelima */
+        grid-template-columns: 20px repeat(10, 1fr); /* Manji prostor za slovo */
+    }
+    
+    .oznaka-reda {
+        font-size: 12px;
+        padding-right: 5px;
+    }
+    
+    .platno {
+        width: 95%;
+    }
+}
