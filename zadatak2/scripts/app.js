@@ -5,8 +5,7 @@ function generisiSalu() {
 
     redovi.forEach(red => {
         for (let i = 1; i <= 10; i++) {
-            // Nasumično ćemo staviti da je oko 30% sjedišta već "zauzeto" (crveno), ostala su slobodna (zeleno)
-            // Ovo daje realističan izgled sali
+            
             let statusSjedista = Math.random() < 0.3 ? 'zauzeto' : 'slobodno';
             sjedista.push({ red: red, broj: i, status: statusSjedista });
         }
@@ -14,7 +13,6 @@ function generisiSalu() {
     return sjedista;
 }
 
-// Ovdje su svi tvoji filmovi iz film.html
 const pocetniPodaci = {
     "projekcije": [
         { "film": "John Wick", "vrijeme": "18:00", "sjedista": generisiSalu() },

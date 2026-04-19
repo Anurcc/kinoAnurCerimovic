@@ -1,4 +1,3 @@
-/* Osnovni reset i font */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,7 +11,6 @@ body {
     padding-top: 60px; 
 }
 
-/* --- MENI --- */
 .meni {
     position: fixed; 
     top: 0;
@@ -39,14 +37,13 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
-    transition: color 0.3s ease-in-out; /* Dinamika: Glatka promjena boje menija */
+    transition: color 0.3s ease-in-out;
 }
 
 .meni ul li a:hover {
     color: #ffcc00;
 }
 
-/* Responzivnost menija */
 @media (max-width: 500px) {
     .meni ul {
         flex-direction: column; 
@@ -60,32 +57,27 @@ body {
     }
 }
 
-/* --- GLAVNI SADRŽAJ --- */
 h2 {
     text-align: center;
     margin: 40px 0 20px 0;
     color: #333;
 }
 
-/* --- GRID RASPORED FILMOVA --- */
 .grid-kontejner {
     display: grid;
     gap: 15px; 
     justify-content: center; 
     grid-template-columns: 200px; 
     
-    /* Dinamika: Animacija pri učitavanju */
     opacity: 0; 
     animation: ucitavanjeKontejnera 0.8s ease-out forwards;
 }
 
-/* Dinamika: Odgoda animacije za različite sekcije */
 #akcija { animation-delay: 0.1s; }
 #drama { animation-delay: 0.3s; }
 #komedija { animation-delay: 0.5s; }
 #animirani { animation-delay: 0.7s; }
 
-/* Media Queries iz zadatka */
 @media (min-width: 800px) {
     .grid-kontejner {
         grid-template-columns: repeat(3, 200px);
@@ -98,7 +90,6 @@ h2 {
     }
 }
 
-/* --- KARTICA FILMA --- */
 .film {
     width: 200px; 
     border: 1px solid #ccc;
@@ -106,10 +97,9 @@ h2 {
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dinamika: Priprema za hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* Dinamika: Efekt izdizanja kad se pređe mišem */
 .film:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 12px 24px rgba(0,0,0,0.2); 
@@ -122,10 +112,9 @@ h2 {
     object-fit: cover;
     border-radius: 3px;
     margin-bottom: 10px;
-    transition: opacity 0.3s ease; /* Dinamika: Priprema za sliku */
+    transition: opacity 0.3s ease;
 }
 
-/* Dinamika: Slika malo potamni na hover */
 .film:hover img {
     opacity: 0.85; 
 }
@@ -140,7 +129,6 @@ h2 {
     font-weight: bold;
 }
 
-/* --- BOJE POZADINE --- */
 .bijela {
     background-color: white; 
     color: black;
@@ -156,7 +144,6 @@ h2 {
     color: white; 
 }
 
-/* --- ANIMACIJE (Keyframes) --- */
 @keyframes ucitavanjeKontejnera {
     from {
         opacity: 0;
@@ -168,7 +155,6 @@ h2 {
     }
 }
 
-/* --- STRANICA: SALA --- */
 
 .info-projekcije {
     text-align: center;
@@ -186,7 +172,6 @@ h2 {
     color: #555;
 }
 
-/* Stil za platno */
 .platno {
     width: 80%;
     max-width: 600px;
@@ -197,22 +182,19 @@ h2 {
     font-weight: bold;
     letter-spacing: 5px;
     color: #555;
-    border-radius: 0 0 50% 50% / 0 0 20px 20px; /* Blago zakrivljeno dno da izgleda kao platno */
+    border-radius: 0 0 50% 50% / 0 0 20px 20px; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* CSS Grid za salu */
 .sala-grid {
     display: grid;
-    /* 11 kolona: prva je za slovo (30px), ostalih 10 su sjedišta jednake širine (1fr) */
     grid-template-columns: 30px repeat(10, 1fr);
-    gap: 10px; /* Razmak između sjedišta */
-    max-width: 600px; /* Ograničavamo maksimalnu širinu sale */
+    gap: 10px;
+    max-width: 600px; 
     margin: 0 auto 30px auto;
-    align-items: center; /* Centrira slova po vertikali sa sjedištima */
+    align-items: center; 
 }
 
-/* Oznake redova (A, B, C...) */
 .oznaka-reda {
     font-weight: bold;
     color: #333;
@@ -220,34 +202,31 @@ h2 {
     padding-right: 10px;
 }
 
-/* Izgled svakog sjedišta */
 .sjediste {
     width: 100%;
-    aspect-ratio: 1 / 1; /* OVO JE KLJUČNO: Osigurava da je uvijek oblik savršenog kvadrata! */
-    border-radius: 5px; /* Blago zaobljene ivice sjedišta */
+    aspect-ratio: 1 / 1; 
+    border-radius: 5px; 
     transition: transform 0.2s ease;
 }
 
-/* Efekt kad se pređe mišem preko sjedišta */
+
 .sjediste:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-/* Boje za statuse sjedišta */
 .slobodno {
-    background-color: #4CAF50; /* Zelena */
+    background-color: #4CAF50; 
 }
 
 .zauzeto {
-    background-color: #F44336; /* Crvena */
+    background-color: #F44336; 
 }
 
 .rezervisano {
-    background-color: #9E9E9E; /* Siva */
+    background-color: #9E9E9E; 
 }
 
-/* --- LEGENDA --- */
 .legenda {
     display: flex;
     justify-content: center;
@@ -266,17 +245,17 @@ h2 {
 .stavka-legende .sjediste {
     width: 20px;
     height: 20px;
-    cursor: default; /* Poništavamo kursor na legendi */
+    cursor: default; 
 }
 .stavka-legende .sjediste:hover {
-    transform: none; /* Poništavamo uvećanje na legendi */
+    transform: none; 
 }
 
-/* --- RESPONZIVNOST ZA SALU --- */
+
 @media (max-width: 600px) {
     .sala-grid {
-        gap: 5px; /* Manji razmak na mobitelima */
-        grid-template-columns: 20px repeat(10, 1fr); /* Manji prostor za slovo */
+        gap: 5px; 
+        grid-template-columns: 20px repeat(10, 1fr); 
     }
     
     .oznaka-reda {

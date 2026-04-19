@@ -6,7 +6,6 @@ const Kino = {
     inicijalizuj: function(idKontejnera, pocetniPodaci) {
         this.kontejner = document.getElementById(idKontejnera);
         
-        // Koristimo novi naziv u memoriji da pregazimo stare greške
         const sacuvaniPodaci = localStorage.getItem('kinoProjekcijeV2');
         
         if (sacuvaniPodaci) {
@@ -41,7 +40,6 @@ const Kino = {
         let trenutniRed = "";
 
         projekcija.sjedista.forEach((sjediste) => {
-            // Dodavanje slova za red
             if (sjediste.red !== trenutniRed) {
                 trenutniRed = sjediste.red;
                 let oznaka = document.createElement("div");
@@ -50,23 +48,19 @@ const Kino = {
                 mrezaSjedista.appendChild(oznaka);
             }
 
-            // Dodavanje kvadratića za sjedište
             let div = document.createElement("div");
             div.className = `sjediste ${sjediste.status}`;
 
-            // KLIK: Logika za rezervaciju i ODrezervaciju
             div.addEventListener("click", () => {
                 if (sjediste.status === "slobodno") {
                     sjediste.status = "rezervisano";
                     this.sacuvajUPamcenje();
                     this.iscrtaj(); 
                 } else if (sjediste.status === "rezervisano") {
-                    // Vraćanje iz rezervisano u slobodno
                     sjediste.status = "slobodno";
                     this.sacuvajUPamcenje();
                     this.iscrtaj();
                 }
-                // Ako je "zauzeto" (crveno), klik neće raditi ništa
             });
 
             mrezaSjedista.appendChild(div);
