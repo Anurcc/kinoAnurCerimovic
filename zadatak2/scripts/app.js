@@ -1,4 +1,4 @@
-// Pomoćna funkcija koja automatski pravi 8 redova sa po 10 sjedišta
+
 function generisiSalu() {
     const redovi = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     let sjedista = [];
